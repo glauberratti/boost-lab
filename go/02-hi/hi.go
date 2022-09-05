@@ -6,14 +6,16 @@ import (
 )
 
 func main() {
-	name := "there"
+	var name string
 
-	if len(os.Args) > 2 {
-		fmt.Println("Too many arguments")
+	for i := 1; i <= len(os.Args)-1; i++ {
+		name += os.Args[i] + " "
 	}
 
-	if len(os.Args) > 1 {
-		name = os.Args[1]
+	if name == "" {
+		name = "there"
+	} else {
+		name = string(name[0 : len(name)-1])
 	}
 
 	fmt.Printf("Hi %v!\n", name)
