@@ -1,6 +1,10 @@
-package main
+package args_test
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/glauberratti/boost-lab/go/05/args/internal/args"
+)
 
 /*
 func TestPrint(t *testing.T) {
@@ -18,7 +22,7 @@ $3 --> "third"
 `
 
 func TestPrint(t *testing.T) {
-	got := output("./args", "first", "second", "third")
+	got := args.Output("./args", "first", "second", "third")
 	if got != testOne {
 		t.Errorf("\nWant:	%q\nGot:	%q\n", testOne, got)
 	}
