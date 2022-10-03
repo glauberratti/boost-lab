@@ -12,11 +12,42 @@ func ExampleReadLine() {
 	line, err := cli.ReadLine(sr)
 
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("error: %v", err)
+		return
 	}
 
 	fmt.Printf("%q", line)
 
 	// Output:
 	// "Sample"
+}
+
+func ExamplePrimpt_default() {
+	sr := strings.NewReader("Sample\r\n")
+	line, err := cli.Prompt(sr, "")
+
+	if err != nil {
+		fmt.Printf("error: %v", err)
+		return
+	}
+
+	fmt.Printf("%q", line)
+
+	// Output:
+	// > "Sample"
+}
+
+func ExamplePrimpt_explicit() {
+	sr := strings.NewReader("Sample\r\n")
+	line, err := cli.Prompt(sr, "--> ")
+
+	if err != nil {
+		fmt.Printf("error: %v", err)
+		return
+	}
+
+	fmt.Printf("%q", line)
+
+	// Output:
+	// --> "Sample"
 }
