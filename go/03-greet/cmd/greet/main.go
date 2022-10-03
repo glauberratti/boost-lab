@@ -8,6 +8,7 @@ import (
 
 	greet "github.com/glauberratti/boost-lab/go/03-greet"
 	"github.com/glauberratti/boost-lab/go/03-greet/internal"
+	cli "github.com/glauberratti/boost-lab/go/06/cli"
 )
 
 func main() {
@@ -29,7 +30,7 @@ func main() {
 		}
 
 		fmt.Println(msg)
-		name, err = internal.ReadLine(os.Stdin)
+		name, err = cli.ReadLine(os.Stdin)
 
 		if err != nil {
 			log.Println(err)
