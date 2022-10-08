@@ -70,7 +70,7 @@ func Respond() string {
 
 // Run starts an intereactive eightball session prompting the user for imput and answering and then repeating until interrupted.
 func Run() {
-	fmt.Println(art)
+	fmt.Print(art)
 	fmt.Println("🎱 Welcome to the magic eightball!")
 	fmt.Println("(Enter your yes or no question)")
 
