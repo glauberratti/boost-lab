@@ -1,6 +1,10 @@
 package internal
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+	"strings"
+)
 
 func MsgHelloThereWhatsYourName(lang string) (string, error) {
 	msgHello := map[string]string{
@@ -11,13 +15,23 @@ func MsgHelloThereWhatsYourName(lang string) (string, error) {
 	return msg(msgHello, lang)
 }
 
-func MsgHiNiceToMeetYou(lang string) (string, error) {
+func MsgHiNiceToMeetYou(lang string, name string) (string, error) {
 	msgHiNice := map[string]string{
-		"en": "Hi {1}, nice to meet you!",
-		"pt": "Oi {1}, prazer em te conhecer!",
+		"en": "Hi{1}, nice to meet you!",
+		"pt": "Oi{1}, prazer em te conhecer!",
 	}
 
-	return msg(msgHiNice, lang)
+	if name != "" {
+		name = fmt.Sprintf(" %v", name)
+	}
+
+	msg, err := msg(msgHiNice, lang)
+
+	if err != nil {
+		return "", err
+	}
+
+	return strings.ReplaceAll(msg, "{1}", name), nil
 }
 
 func msg(m map[string]string, l string) (string, error) {
