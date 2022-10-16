@@ -19,7 +19,7 @@ func ExampleGenRandom() {
 	respLen := len(eightball.GetResponses())
 	n := eightball.GenRandom(respLen)
 	log.Println(n)
-	fmt.Print(n >= 0 && n < 3)
+	fmt.Print(n >= 0 && n < respLen)
 
 	// Output:
 	// true
