@@ -1,4 +1,4 @@
-module github.com/glauberratti/boost-lab/go/04/termcolors
+module github.com/glauberratti/boost-lab/go/09/keeper
 
 go 1.18
 
